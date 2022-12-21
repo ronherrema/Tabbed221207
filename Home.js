@@ -11,7 +11,8 @@ const data = [
 
 export default function HomeScreen() {
   const [value] = useReState("value", 0)
-  const [bcg] = useReState("bgc", "#7777ff")
+  const [bcg] = useReState("bgc", "#fff")
+  const [albums] = useReState("albums", [])
   return (
     <View
       style={{
@@ -23,12 +24,12 @@ export default function HomeScreen() {
     >
       <View style={{ height: 50 }}></View>
       <FlatList
-        data={data}
+        data={albums}
         renderItem={({ item }) => (
           <Text
             style={{
               fontSize: 18,
-              color: "#f55",
+              color: bcg === "#fff" ? "#ff7777" : "#fff",
               paddingLeft: 10,
               paddingTop: 15,
               fontWeight: "bold",
@@ -46,7 +47,7 @@ export default function HomeScreen() {
         }}
       ></FlatList>
       <View style={{ height: 50 }}>
-        <Text>{value}</Text>
+        <Text style={{ fontSize: 24 }}>{value}</Text>
       </View>
     </View>
   )

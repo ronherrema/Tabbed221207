@@ -20,8 +20,8 @@ export default function App() {
               iconName = "musical-notes"
             } else if (route.name === "Settings") {
               iconName = "settings"
-            } else if (route.name === "Albums") {
-              iconName = "folder-outline"
+            } else if (route.name === "Add") {
+              iconName = "add"
             }
             return <Ionicons name={iconName} size={size} color={color} />
           },
@@ -41,7 +41,7 @@ export default function App() {
         })}
       >
         <Tab.Screen name="Tracks" component={HomeScreen} />
-        <Tab.Screen name="Albums" component={Albums} />
+        <Tab.Screen name="Add" component={Albums} />
         <Tab.Screen name="Settings" component={SettingsScreen} />
       </Tab.Navigator>
     </NavigationContainer>

@@ -9,15 +9,19 @@ export default function SettingsScreen() {
     <View
       style={{
         flex: 1,
-        justifyContent: "center",
+        justifyContent: "space-evenly",
         alignItems: "center",
         backgroundColor: bgc,
       }}
     >
       <Text style={{ fontSize: 42, color: "#7777ff" }}>Settings</Text>
-      <Button title="press" onPress={() => setValue(value + 1)}></Button>
-      <Button title="green" onPress={() => setBgc("#00ff00")}></Button>
-      <Button title="orange" onPress={() => setBgc("#ff7777")}></Button>
+      <View style={{ height: "40%", justifyContent: "space-evenly" }}>
+        <Button title="Add 1" onPress={() => setValue(value + 1)}></Button>
+        <Text style={{ fontSize: 24, textAlign: "center" }}>{value}</Text>
+        <Button title="Gray" onPress={() => setBgc("#aaaaaa")}></Button>
+        <Button title="Orange" onPress={() => setBgc("#ff7777")}></Button>
+        <Button title="White" onPress={() => setBgc("#fff")}></Button>
+      </View>
     </View>
   )
 }

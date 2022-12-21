@@ -1,5 +1,15 @@
 import * as React from "react"
-import { Text, View, StyleSheet, ScrollView, Image } from "react-native"
+import { useState } from "react"
+import {
+  Text,
+  View,
+  StyleSheet,
+  ScrollView,
+  Image,
+  TextInput,
+} from "react-native"
+import { useReState } from "@raulpesilva/re-state"
+
 const joni = (
   <Image
     source={require("./assets/blue.png")}
@@ -9,26 +19,23 @@ const joni = (
 )
 
 export default function Albums() {
+  const [textIn, setTextIn] = useState("")
+  const [bgc, setBgc] = useReState("bgc", "#7777ff")
+  const [albums, setAlbums] = useReState("albums", [])
   return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <View style={{ flexDirection: "row", height: "95%" }}>
-        <ScrollView
-          style={{ width: "45%", height: "90%", borderWidth: 0, margin: 5 }}
-        >
-          {joni}
-          {joni}
-          {joni}
-          {joni}
-        </ScrollView>
-        <ScrollView
-          style={{ width: "45%", height: "90%", borderWidth: 0, margin: 5 }}
-        >
-          {joni}
-          {joni}
-          {joni}
-          {joni}
-        </ScrollView>
-      </View>
+    <View
+      style={{
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: bgc,
+      }}
+    >
+      <TextInput
+        style={{ width: "80%", height: "10%", borderWidth: 1 }}
+        onChangeText={(t) => setTextIn(t)}
+        onSubmitEditing={() => setAlbums([...albums, textIn])}
+      ></TextInput>
     </View>
   )
 }
