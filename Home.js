@@ -1,5 +1,6 @@
 import * as React from "react"
 import { Text, View, StyleSheet, FlatList } from "react-native"
+import { useReState } from "@raulpesilva/re-state"
 
 const data = [
   "Elton John: Yellowbrick Road",
@@ -9,13 +10,15 @@ const data = [
 ]
 
 export default function HomeScreen() {
+  const [value] = useReState("value", 0)
+  const [bcg] = useReState("bgc", "#7777ff")
   return (
     <View
       style={{
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: "#fff",
+        backgroundColor: bcg,
       }}
     >
       <View style={{ height: 50 }}></View>
@@ -42,7 +45,9 @@ export default function HomeScreen() {
           borderColor: "#777",
         }}
       ></FlatList>
-      <View style={{ height: 50 }}></View>
+      <View style={{ height: 50 }}>
+        <Text>{value}</Text>
+      </View>
     </View>
   )
 }
