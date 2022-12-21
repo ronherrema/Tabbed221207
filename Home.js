@@ -7,9 +7,17 @@ const data = [
   "Jackson Browne: Running on Empty",
   "Frank Sinatra: Mack the Knife",
 ]
+
 export default function HomeScreen() {
   return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+    <View
+      style={{
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: "#fff",
+      }}
+    >
       <View style={{ height: 50 }}></View>
       <FlatList
         data={data}
