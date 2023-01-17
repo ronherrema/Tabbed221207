@@ -6,6 +6,8 @@ import HomeScreen from "./Home"
 import Albums from "./Albums"
 import SettingsScreen from "./Settings"
 import { Ionicons } from "@expo/vector-icons"
+import AsyncStorage from "@react-native-async-storage/async-storage"
+import StackScreen from "./Stack"
 
 const Tab = createBottomTabNavigator()
 
@@ -22,6 +24,8 @@ export default function App() {
               iconName = "settings"
             } else if (route.name === "Add") {
               iconName = "add"
+            } else if (route.name === "Stack") {
+              iconName = "folder"
             }
             return <Ionicons name={iconName} size={size} color={color} />
           },
@@ -42,6 +46,7 @@ export default function App() {
       >
         <Tab.Screen name="Tracks" component={HomeScreen} />
         <Tab.Screen name="Add" component={Albums} />
+        <Tab.Screen name="Stack" component={StackScreen} />
         <Tab.Screen name="Settings" component={SettingsScreen} />
       </Tab.Navigator>
     </NavigationContainer>
