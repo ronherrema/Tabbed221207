@@ -1,6 +1,6 @@
 import * as React from "react"
 import { useState } from "react"
-import { Text, View, StyleSheet, Image, TextInput } from "react-native"
+import { View, StyleSheet, TextInput } from "react-native"
 import { useReState } from "@raulpesilva/re-state"
 
 export default function Albums() {
