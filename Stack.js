@@ -1,13 +1,6 @@
 import "react-native-gesture-handler"
 import * as React from "react"
-import {
-  Button,
-  StyleSheet,
-  TouchableOpacity,
-  View,
-  Text,
-  Image,
-} from "react-native"
+import { StyleSheet, TouchableOpacity, View, Text, Image } from "react-native"
 import { createStackNavigator } from "@react-navigation/stack"
 
 const Stack = createStackNavigator()

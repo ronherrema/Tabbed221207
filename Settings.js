@@ -6,14 +6,7 @@ export default function SettingsScreen() {
   const [value, setValue] = useReState("value", 0)
   const [bgc, setBgc] = useReState("bgc", "#7777ff")
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "space-evenly",
-        alignItems: "center",
-        backgroundColor: bgc,
-      }}
-    >
+    <View style={[styles.container, { backgroundColor: bgc }]}>
       <Text style={{ fontSize: 42, color: "#7777ff" }}>Settings</Text>
       <View style={{ height: "40%", justifyContent: "space-evenly" }}>
         <Button title="Add 1" onPress={() => setValue(value + 1)}></Button>
@@ -25,3 +18,11 @@ export default function SettingsScreen() {
     </View>
   )
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "space-evenly",
+  },
+})
