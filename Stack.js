@@ -2,12 +2,14 @@ import "react-native-gesture-handler"
 import * as React from "react"
 import { StyleSheet, TouchableOpacity, View, Text, Image } from "react-native"
 import { createStackNavigator } from "@react-navigation/stack"
+import { useReState } from "@raulpesilva/re-state"
 
 const Stack = createStackNavigator()
 
 function Screen1({ navigation }) {
+  const [bcg] = useReState("bgc", "#fff")
   return (
-    <View style={styles.stack}>
+    <View style={[styles.stack, { backgroundColor: bcg }]}>
       <TouchableOpacity
         onPress={() => navigation.navigate("Item 1")}
         style={styles.button}
@@ -66,7 +68,7 @@ const styles = StyleSheet.create({
   },
   stack: {
     flex: 1,
-    backgroundColor: "white",
+    // backgroundColor: "white",
     justifyContent: "space-evenly",
     alignItems: "center",
   },
