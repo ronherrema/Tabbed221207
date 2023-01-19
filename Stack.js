@@ -27,22 +27,23 @@ function Screen1({ navigation }) {
 }
 function Screen2() {
   return (
-    <View style={[styles.container, { backgroundColor: "#77777755" }]}>
+    <View style={[styles.container, { backgroundColor: "#77ff7733" }]}>
       <Image source={require("./assets/blue.png")}></Image>
     </View>
   )
 }
 function Screen3() {
   return (
-    <View style={[styles.container, { backgroundColor: "#77777755" }]}>
+    <View style={[styles.container, { backgroundColor: "#77ff7733" }]}>
       <Image source={require("./assets/apple.png")}></Image>
     </View>
   )
 }
 
 export default function StackScreen() {
+  const [bcg] = useReState("bgc", "#fff")
   return (
-    <Stack.Navigator>
+    <Stack.Navigator screenOptions={{ headerStyle: { backgroundColor: bcg } }}>
       <Stack.Screen name="Item List" component={Screen1}></Stack.Screen>
       <Stack.Screen name="Item 1" component={Screen2}></Stack.Screen>
       <Stack.Screen name="Item 2" component={Screen3}></Stack.Screen>
