@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     borderWidth: 1,
     borderRadius: 10,
-    backgroundColor: "cornflowerblue",
+    backgroundColor: "#7777ff",
   },
   stack: {
     flex: 1,
