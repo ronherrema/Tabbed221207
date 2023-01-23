@@ -30,9 +30,7 @@ export default function HomeScreen() {
         )}
         style={styles.list}
       ></FlatList>
-      <View style={{ height: 50 }}>
-        <Text style={{ fontSize: 24 }}>{value}</Text>
-      </View>
+      <View style={{ height: 50 }}></View>
     </View>
   )
 }

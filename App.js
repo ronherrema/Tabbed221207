@@ -23,15 +23,15 @@ export default function App() {
               iconName = "settings"
             } else if (route.name === "Add") {
               iconName = "add"
-            } else if (route.name === "Stack") {
-              iconName = "folder"
+            } else if (route.name === "Purchase") {
+              iconName = "pricetags-outline"
             }
             return <Ionicons name={iconName} size={size} color={color} />
           },
           tabBarActiveTintColor: "white",
           tabBarInactiveTintColor: "#444",
           tabBarStyle: {
-            backgroundColor: "#7777ff",
+            backgroundColor: "#ffc1cc",
           },
           // headerShown: false,
           headerTintColor: "#fff",
@@ -39,13 +39,12 @@ export default function App() {
             fontSize: 24,
             marginBottom: 10,
           },
-          headerStyle: { backgroundColor: "#7777ff" },
-          headerTitle: "Music Player",
+          headerStyle: { backgroundColor: "#ffc1cc" },
+          headerTitle: "Bubblegum Bests!",
         })}
       >
         <Tab.Screen name="Tracks" component={HomeScreen} />
-        <Tab.Screen name="Add" component={Albums} />
-        <Tab.Screen name="Stack" component={StackScreen} />
+        <Tab.Screen name="Purchase" component={StackScreen} />
         <Tab.Screen name="Settings" component={SettingsScreen} />
       </Tab.Navigator>
     </NavigationContainer>

@@ -14,27 +14,31 @@ function Screen1({ navigation }) {
         onPress={() => navigation.navigate("Item 1")}
         style={styles.button}
       >
-        <Text style={{ fontSize: 28 }}>Item 1</Text>
+        <Text style={{ fontSize: 28, color: "#fff", textAlign: "center" }}>
+          National League
+        </Text>
       </TouchableOpacity>
       <TouchableOpacity
         onPress={() => navigation.navigate("Item 2")}
         style={styles.button}
       >
-        <Text style={{ fontSize: 28 }}>Item 2</Text>
+        <Text style={{ fontSize: 28, color: "#fff", textAlign: "center" }}>
+          American League
+        </Text>
       </TouchableOpacity>
     </View>
   )
 }
 function Screen2() {
   return (
-    <View style={[styles.container, { backgroundColor: "#77ff7733" }]}>
+    <View style={[styles.container, { backgroundColor: "#c1ffcc" }]}>
       <Image source={require("./assets/blue.png")}></Image>
     </View>
   )
 }
 function Screen3() {
   return (
-    <View style={[styles.container, { backgroundColor: "#77ff7733" }]}>
+    <View style={[styles.container, { backgroundColor: "#c1ffcc" }]}>
       <Image source={require("./assets/apple.png")}></Image>
     </View>
   )
@@ -44,7 +48,7 @@ export default function StackScreen() {
   const [bcg] = useReState("bgc", "#fff")
   return (
     <Stack.Navigator screenOptions={{ headerStyle: { backgroundColor: bcg } }}>
-      <Stack.Screen name="Item List" component={Screen1}></Stack.Screen>
+      <Stack.Screen name="Purchase Cards" component={Screen1}></Stack.Screen>
       <Stack.Screen name="Item 1" component={Screen2}></Stack.Screen>
       <Stack.Screen name="Item 2" component={Screen3}></Stack.Screen>
     </Stack.Navigator>
@@ -63,9 +67,9 @@ const styles = StyleSheet.create({
     height: "15%",
     alignItems: "center",
     justifyContent: "center",
-    borderWidth: 1,
+    // borderWidth: 1,
     borderRadius: 10,
-    backgroundColor: "#7777ff",
+    backgroundColor: "#c1ccff",
   },
   stack: {
     flex: 1,

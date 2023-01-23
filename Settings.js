@@ -7,12 +7,10 @@ export default function SettingsScreen() {
   const [bgc, setBgc] = useReState("bgc", "#7777ff")
   return (
     <View style={[styles.container, { backgroundColor: bgc }]}>
-      <Text style={{ fontSize: 42, color: "#7777ff" }}>Settings</Text>
+      <Text style={{ fontSize: 42, color: "#aaaaff" }}>Set background</Text>
       <View style={{ height: "40%", justifyContent: "space-evenly" }}>
-        <Button title="Add 1" onPress={() => setValue(value + 1)}></Button>
-        <Text style={{ fontSize: 24, textAlign: "center" }}>{value}</Text>
-        <Button title="Gray" onPress={() => setBgc("#aaaaaa")}></Button>
-        <Button title="Orange" onPress={() => setBgc("#ff7777")}></Button>
+        <Button title="Blue" onPress={() => setBgc("#c1ccff")}></Button>
+        <Button title="Bubblegum" onPress={() => setBgc("#ffc1cc")}></Button>
         <Button title="White" onPress={() => setBgc("#fff")}></Button>
       </View>
     </View>
