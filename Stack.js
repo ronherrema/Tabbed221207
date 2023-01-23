@@ -1,17 +1,27 @@
 import "react-native-gesture-handler"
 import * as React from "react"
-import { StyleSheet, TouchableOpacity, View, Text, Image } from "react-native"
+import {
+  StyleSheet,
+  TouchableOpacity,
+  View,
+  Text,
+  Image,
+  Button,
+} from "react-native"
 import { createStackNavigator } from "@react-navigation/stack"
 import { useReState } from "@raulpesilva/re-state"
 
 const Stack = createStackNavigator()
 
+let globalTotal = 0
+
 function Screen1({ navigation }) {
   const [bcg] = useReState("bgc", "#fff")
+  const [total, setTotal] = useReState("total", 0)
   return (
     <View style={[styles.stack, { backgroundColor: bcg }]}>
       <TouchableOpacity
-        onPress={() => navigation.navigate("Item 1")}
+        onPress={() => navigation.navigate("National League")}
         style={styles.button}
       >
         <Text style={{ fontSize: 28, color: "#fff", textAlign: "center" }}>
@@ -19,27 +29,62 @@ function Screen1({ navigation }) {
         </Text>
       </TouchableOpacity>
       <TouchableOpacity
-        onPress={() => navigation.navigate("Item 2")}
+        onPress={() => navigation.navigate("American League")}
         style={styles.button}
       >
         <Text style={{ fontSize: 28, color: "#fff", textAlign: "center" }}>
           American League
         </Text>
       </TouchableOpacity>
+      <Button
+        onPress={() => {
+          globalTotal = 0
+          setTotal(globalTotal)
+        }}
+        title="Clear"
+      ></Button>
     </View>
   )
 }
 function Screen2() {
+  const [total, setTotal] = useReState("total", 0)
   return (
     <View style={[styles.container, { backgroundColor: "#c1ffcc" }]}>
-      <Image source={require("./assets/blue.png")}></Image>
+      <TouchableOpacity onPress={() => setTotal((globalTotal += 100))}>
+        <Image
+          source={require("./assets/gibson.jpeg")}
+          style={{ width: 150, height: 225 }}
+          resizeMode="contain"
+        ></Image>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={() => setTotal((globalTotal += 100))}>
+        <Image
+          source={require("./assets/flood.jpeg")}
+          style={{ width: 150, height: 225 }}
+          resizeMode="contain"
+        ></Image>
+      </TouchableOpacity>
     </View>
   )
 }
 function Screen3() {
+  const [total, setTotal] = useReState("total", 0)
   return (
     <View style={[styles.container, { backgroundColor: "#c1ffcc" }]}>
-      <Image source={require("./assets/apple.png")}></Image>
+      <TouchableOpacity onPress={() => setTotal((globalTotal += 100))}>
+        <Image
+          source={require("./assets/horton.jpeg")}
+          style={{ width: 150, height: 225 }}
+          resizeMode="contain"
+        ></Image>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={() => setTotal((globalTotal += 100))}>
+        <Image
+          source={require("./assets/lolich.jpeg")}
+          style={{ width: 150, height: 225 }}
+          resizeMode="contain"
+        ></Image>
+      </TouchableOpacity>
     </View>
   )
 }
@@ -49,8 +94,8 @@ export default function StackScreen() {
   return (
     <Stack.Navigator screenOptions={{ headerStyle: { backgroundColor: bcg } }}>
       <Stack.Screen name="Purchase Cards" component={Screen1}></Stack.Screen>
-      <Stack.Screen name="Item 1" component={Screen2}></Stack.Screen>
-      <Stack.Screen name="Item 2" component={Screen3}></Stack.Screen>
+      <Stack.Screen name="National League" component={Screen2}></Stack.Screen>
+      <Stack.Screen name="American League" component={Screen3}></Stack.Screen>
     </Stack.Navigator>
   )
 }
